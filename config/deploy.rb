@@ -39,7 +39,6 @@ namespace :deploy do
     task :restart, :roles => :app do
     run "touch #{current_release}/tmp/restart.txt"
   end
-end
 
   task :setup_config, roles: :app do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
