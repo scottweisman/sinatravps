@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem "sinatra", :require => "sinatra/base"
+gem "sinatra"
 
 # Use unicorn as the app server
 gem 'unicorn'

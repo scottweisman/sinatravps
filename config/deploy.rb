@@ -23,7 +23,13 @@ namespace :deploy do
     task command, roles: :app, except: {no_release: true} do
       run "/etc/init.d/unicorn_#{application} #{command}"
     end
+
+  # This will make sure that Capistrano doesn't try to run rake:migrate (this is not a Rails project!)
+  task :cold do
+    deploy.update
+    deploy.start
   end
+end
 
   task :setup_config, roles: :app do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
