@@ -19,17 +19,14 @@ after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
 # As this isn't a rails app, we don't start and stop the app invidually
 namespace :deploy do
-  desc "Not starting as we're running passenger."
+  task :restart do
+    run "if [ -f #{unicorn_pid} ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{deploy_to}/current && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D; fi"
+  end
   task :start do
+    run "cd #{deploy_to}/current && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D"
   end
-
-  desc "Not stopping as we're running passenger."
   task :stop do
-  end
-
-  desc "Restart the app."
-  task :restart, roles: :app, except: { :no_release => true } do
-    run "touch #{File.join(current_path,'tmp','restart.txt')}"
+    run "if [ -f #{unicorn_pid} ]; then kill -QUIT `cat #{unicorn_pid}`; fi"
   end
 
   # This will make sure that Capistrano doesn't try to run rake:migrate (this is not a Rails project!)
