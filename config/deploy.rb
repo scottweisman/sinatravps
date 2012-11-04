@@ -15,7 +15,7 @@ set :default_environment, {
 # Application name
 set :application, "sinatra-vps"
 # The user to deploy as
-set :user, "deploy"
+set :user, "deployer"
 # Don't use sudo when running the commands
 set :use_sudo, false
 
@@ -36,8 +36,8 @@ set :deploy_via, :remote_cache
 
 # server roles
 # DOMAIN can be an IP or FQDN
-role :app, "http://208.68.38.211/"
-role :web, "http://208.68.38.211/"
+role :app, "208.68.38.211"
+role :web, "208.68.38.211"
 # role :db, "DOMAIN", primary: true
 
 # After an initial (cold) deploy, symlink the app and restart nginx
