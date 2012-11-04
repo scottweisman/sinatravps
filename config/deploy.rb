@@ -37,7 +37,6 @@ namespace :deploy do
     deploy.update
     deploy.start
   end
-end
 
   task :setup_config, roles: :app do
     sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{application}"
