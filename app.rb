@@ -1,5 +1,5 @@
 class SinatraVps < Sinatra::Base
   get "/" do
-    "Hello VPS. Lets see if this works. Here's another new change."
+    "Hello VPS. Lets see if this works. This is a change to test Sinatra."
   end
 end
