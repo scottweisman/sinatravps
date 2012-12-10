@@ -10,7 +10,7 @@ load "config/recipes/check"
 server "192.34.57.69", :web, :app, :db, primary: true
 
 set :user, "deployer"
-set :application, "sinatrasvps"
+set :application, "sinatravps"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
