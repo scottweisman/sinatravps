@@ -3,7 +3,7 @@ gem "sinatra"
 gem "shotgun"
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 gem 'capistrano'
