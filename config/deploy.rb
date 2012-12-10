@@ -7,7 +7,7 @@ load "config/recipes/nodejs"
 load "config/recipes/rbenv"
 load "config/recipes/check"
 
-server "208.68.38.41", :web, :app, :db, primary: true
+server "192.34.57.69", :web, :app, :db, primary: true
 
 set :user, "deployer"
 set :application, "sinatrasvps"
